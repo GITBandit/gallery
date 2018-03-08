@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Gallery</title>
+</head>
+<body>
+<h1>Hello</h1>
+
+<img th:src="@{random.jpg}"/>
+
+<form method="POST" action="/" enctype="multipart/form-data">
+    <input type="file" name="file" /><br/><br/>
+    <input type="submit" value="Submit" />
+</form>
+
+<ul th:each="file : ${files}">
+    <li >
+        <p th:text="*{file.name}"></p>
+        <img src="#" height="30%" width="30%" th:src="@{${file.name}}"/>
+
+    </li>
+</ul>
+
+</body>
+</html>
